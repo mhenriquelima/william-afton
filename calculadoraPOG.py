@@ -71,8 +71,8 @@ while is_running == True:
     if 1 <= selected_operation <= 6:
         n1 = is_input_float('Digite o primeiro número > ')
         n2 = is_input_float('Digite o segundo número > ')
-        
         calc_instance = calc(n1, n2)
+        
         operations = [calc_instance.soma, calc_instance.sub, calc_instance.mult, calc_instance.div, calc_instance.pot, calc_instance.raiz]
         resultado = operations[selected_operation - 1]()
         

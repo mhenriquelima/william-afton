@@ -48,8 +48,7 @@ n1 = 0
 n2= 0
 
 while is_running == True:
-    selected_operation = is_input_integer('''
-    Bem vindo a calculadora POG
+    selected_operation = is_input_integer('''   Bem vindo a calculadora POG
         Escolha uma opção:
         1 - Soma
         2 - Subtração   

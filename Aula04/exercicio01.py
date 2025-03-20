@@ -1,8 +1,16 @@
-n1 = input("Digite um número: ")
-n2 = input("Digite um número: ")
+def is_input_float(prompt):
+    while True:
+        try:
+            return float(input(prompt))
+        except ValueError:
+            print('insira um número válido.')
 
-soma = int(n1) + int(n2)
-mult = int(n1) * int(n2)
-print(soma)
-print(mult)
-print(soma/2)
+n1 = is_input_float("Digite um número: ")
+n2 = is_input_float("Digite um número: ")
+
+soma = n1 + n2
+mult = n1 * n2
+media = soma/2
+print(f'''A soma dos números é {soma}
+O produto dos números é {mult}
+A média dos números é {media}''')

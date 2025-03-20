@@ -5,14 +5,17 @@ class calc():
 
     def soma(self):
         resultado = self.a + self.b
+        historico.append(f'{n1} + {n2} = {resultado}')
         return resultado
     
     def sub(self):
         resultado = self.a - self.b
+        historico.append(f'{n1} - {n2} = {resultado}')
         return resultado
     
     def mult(self):
         resultado = self.a * self.b
+        historico.append(f'{n1} * {n2} = {resultado}')
         return resultado
     
     def div(self):
@@ -21,13 +24,18 @@ class calc():
             return resultado
         else:
             resultado = self.a / self.b
+            historico.append(f'{n1} / {n2} = {resultado}')
             return resultado
     
     def pot(self):
-        return self.a ** self.b
+        resultado = self.a ** self.b
+        historico.append(f'{n1} ^ {n2} = {resultado}')
+        return resultado
 
     def raiz(self):
-        return self.a ** (1/self.b)
+        resultado = self.a ** (1/self.b)
+        historico.append(f'{n2}√ {n1} = {resultado}')
+        return resultado
         
 def is_input_float(prompt):
     while True:
@@ -58,7 +66,7 @@ while is_running == True:
         6 - Raiz
         7 - Histórico
         8 - Sair
->''')
+> ''')
 
     if 1 <= selected_operation <= 6:
         n1 = is_input_float('Digite o primeiro número > ')
@@ -69,8 +77,6 @@ while is_running == True:
         resultado = operations[selected_operation - 1]()
         
         operations_dict = {1: '+', 2: '-', 3: '*', 4: '/', 5: '^', 6: '√'}
-        
-        historico.append(f'{n1} {operations_dict[selected_operation]} {n2} = {resultado}')
         print(f'O resultado é {resultado}')
     elif selected_operation == 7:
         print(historico)

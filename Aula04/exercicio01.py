@@ -11,6 +11,7 @@ n2 = is_input_float("Digite um número: ")
 soma = n1 + n2
 mult = n1 * n2
 media = soma/2
-print(f'''A soma dos números é {soma}
+print(f'''
+A soma dos números é {soma}
 O produto dos números é {mult}
 A média dos números é {media}''')

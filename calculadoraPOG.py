@@ -56,7 +56,8 @@ n1 = 0
 n2= 0
 
 while is_running == True:
-    selected_operation = is_input_integer('''   Bem vindo a calculadora POG
+    selected_operation = is_input_integer('''
+    Bem vindo a calculadora POG
         Escolha uma opção:
         1 - Soma
         2 - Subtração   
@@ -80,6 +81,11 @@ while is_running == True:
         print(f'O resultado é {resultado}')
     elif selected_operation == 7:
         print(historico)
+        if input('Deseja apagar o histórico? [0] > ') == '0':
+            historico.clear()
+            print('Histórico apagado.')
+        else:
+            print('Histórico mantido.')
     elif selected_operation == 8:
         is_running = False
     else:

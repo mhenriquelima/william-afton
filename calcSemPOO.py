@@ -1,41 +1,36 @@
-class calc():
-    def __init__(self, a, b):
-        self.a = a
-        self.b = b
+def soma(a,b):
+    resultado = a + b
+    historico.append(f'{n1} + {n2} = {resultado}')
+    return resultado
 
-    def soma(self):
-        resultado = self.a + self.b
-        historico.append(f'{n1} + {n2} = {resultado}')
+def sub(a,b):
+    resultado = a - b
+    historico.append(f'{n1} - {n2} = {resultado}')
+    return resultado
+
+def mult(a,b):
+    resultado = a * b
+    historico.append(f'{n1} * {n2} = {resultado}')
+    return resultado
+
+def div(a,b):
+    if n2 == 0:
+        resultado = 'Operação inválida.'
         return resultado
-    
-    def sub(self):
-        resultado = self.a - self.b
-        historico.append(f'{n1} - {n2} = {resultado}')
-        return resultado
-    
-    def mult(self):
-        resultado = self.a * self.b
-        historico.append(f'{n1} * {n2} = {resultado}')
-        return resultado
-    
-    def div(self):
-        if n2 == 0:
-            resultado = 'Operação inválida.'
-            return resultado
-        else:
-            resultado = self.a / self.b
-            historico.append(f'{n1} / {n2} = {resultado}')
-            return resultado
-    
-    def pot(self):
-        resultado = self.a ** self.b
-        historico.append(f'{n1} ^ {n2} = {resultado}')
+    else:
+        resultado = a / b
+        historico.append(f'{n1} / {n2} = {resultado}')
         return resultado
 
-    def raiz(self):
-        resultado = self.a ** (1/self.b)
-        historico.append(f'{n2}√ {n1} = {resultado}')
-        return resultado
+def pot(a,b):
+    resultado = a ** b
+    historico.append(f'{n1} ^ {n2} = {resultado}')
+    return resultado
+
+def raiz(a,b):
+    resultado = a ** (1/b)
+    historico.append(f'{n2}√ {n1} = {resultado}')
+    return resultado
         
 def is_input_float(prompt):
     while True:
@@ -73,10 +68,16 @@ while is_running == True:
         n1 = is_input_float('Digite o primeiro número > ')
         n2 = is_input_float('Digite o segundo número > ')
         
-        calc_instance = calc(n1, n2)
-        operations = [calc_instance.soma, calc_instance.sub, calc_instance.mult, calc_instance.div, calc_instance.pot, calc_instance.raiz]
-        resultado = operations[selected_operation - 1]()
-        print(f'O resultado é {resultado}')
+        operations = {
+            1: soma,
+            2: sub,
+            3: mult,
+            4: div,
+            5: pot,
+            6: raiz
+        }
+        resultado = operations[selected_operation](n1, n2)
+        print(f'O resultado é: {resultado}')
     elif selected_operation == 7:
         print(historico)
         if input('Deseja apagar o histórico? [0] > ') == '0':

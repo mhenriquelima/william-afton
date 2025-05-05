@@ -5,6 +5,6 @@ def is_input_float(prompt):
         except ValueError:
             print('insira um número válido.')
 
-temp = is_input_float("Digite a temperatura em Celsius: ")
+temp = is_input_float('Digite a temperatura em Celsius > ')
 f = (temp * 9/5) + 32
-print(f'A temperatura em Fahrenheit é {f}')
+print(f'A temperatura {temp}°C em Fahrenheit é {f}°F')
